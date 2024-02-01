@@ -1,0 +1,132 @@
+.is-size {
+  &-1 {
+    font-size: $p1-font-size;
+  }
+
+  &-2 {
+    font-size: $p2-font-size;
+  }
+
+  &-3 {
+    font-size: $p3-font-size;
+    line-height: 1.5em;
+  }
+
+  &-4 {
+    font-size: $p4-font-size;
+  }
+
+  &-5 {
+    font-size: $p5-font-size;
+  }
+}
+
+.is-light {
+  font-weight: 200;
+}
+
+.is-regular {
+  font-weight: 400;
+}
+
+.is-semibold {
+  font-weight: 600 !important;
+}
+
+.is-bold {
+  font-weight: 700;
+}
+
+.is-extrabold {
+  font-weight: 800;
+}
+
+.fs- {
+  &1 {
+    font-size: $h1-font-size;
+    line-height: 1em;
+  }
+
+  &2 {
+    font-size: $h2-font-size;
+    line-height: 1em;
+
+    @include mediaMax(sm) {
+      font-size: $h3-font-size;
+    }
+  }
+
+  &3 {
+    font-size: $h3-font-size;
+    line-height: 1em;
+
+    @include mediaMax(sm) {
+      font-size: $h4-font-size;
+    }
+  }
+
+  &4 {
+    font-size: $h4-font-size;
+    line-height: 1em;
+
+    @include mediaMax(sm) {
+      font-size: $h5-font-size;
+    }
+  }
+
+  &5 {
+    font-size: $h5-font-size;
+  }
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.content {
+  & h2 {
+    padding-bottom: 0.5rem;
+    @extend .fs-4;
+  }
+
+  & h3 {
+    padding-bottom: 0.5rem;
+    @extend .is-size-1;
+  }
+
+  & h4 {
+    padding-bottom: 0.5rem;
+    text-decoration: underline;
+    @extend .is-size-2;
+  }
+
+  & strong span {
+    font-weight: 600;
+    line-height: 160%;
+  }
+
+  & p {
+    font-weight: 350;
+    padding: 0.5rem 0;
+    @extend .is-size-3;
+  }
+
+  & a {
+    font-weight: 600;
+    text-decoration: underline;
+    & span {
+      text-decoration: none;
+    }
+  }
+
+  & ul {
+    @extend .is-regular;
+    @extend .is-size-4;
+    padding-left: 2rem;
+
+    & li {
+      padding-bottom: 0.5rem;
+      list-style-type: square;
+    }
+  }
+}
