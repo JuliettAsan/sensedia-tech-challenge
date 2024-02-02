@@ -1,13 +1,13 @@
 .gameStats {
-  height: 10rem;
-  margin-top: 10rem;
+  height: 7rem;
+  margin-top: 11rem;
   display: flex;
   background-color: $purple-01;
 
   &__container {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 7rem;
   }
 
   &__content {
@@ -19,7 +19,17 @@
       flex-wrap: nowrap;
       flex-direction: column;
       justify-content: flex-start;
-      gap: 1.3rem;
+      gap: 1rem;
     }
+  }
+}
+
+.usersInformation {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+
+  & h3 {
+    width: 100%;
   }
 }

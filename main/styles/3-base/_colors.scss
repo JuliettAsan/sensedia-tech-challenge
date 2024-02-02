@@ -3,7 +3,11 @@
 }
 
 .is-text-black {
-  color: $black-01;
+  color: $black-01 !important;
+}
+
+.is-text-black02 {
+  color: $black-02;
 }
 
 .is-text-gray {

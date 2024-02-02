@@ -1,0 +1,26 @@
+.searchContainer {
+  border-bottom: 1px solid $gray-04;
+  background-color: $gray-03;
+  position: relative;
+  padding: 0.5rem 1rem;
+  width: 100%;
+
+  @include mediaMax(xs) {
+    width: 100%;
+  }
+
+  &-Input {
+    @extend .is-size-2;
+    @extend .is-regular;
+    background-color: $gray-03;
+    flex: 1;
+    outline: none;
+    border: 0;
+  }
+
+  &-Icon {
+    position: absolute;
+    right: 1rem;
+    top: 0.2rem;
+  }
+}

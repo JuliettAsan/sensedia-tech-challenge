@@ -1,0 +1,49 @@
+.paginator {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem 1rem;
+  @extend .is-size-1;
+  gap: 1.2rem;
+
+  @include mediaMin(md) {
+    margin-bottom: -6rem;
+  }
+
+  &-content {
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    &Button {
+      @extend .is-size-4;
+      @extend .is-text-gray;
+      @extend .is-semibold;
+      padding: 0.5rem 1rem;
+      border: 2px solid $gray-01;
+      border-radius: 30px;
+    }
+  }
+
+  & .icon {
+    cursor: pointer;
+  }
+}
+
+.page-item {
+  @extend .is-size-2;
+  color: $purple-01;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    color: $purple-02;
+  }
+  &.is-active {
+    color: $purple-02;
+    @extend .is-size-1;
+  }
+}

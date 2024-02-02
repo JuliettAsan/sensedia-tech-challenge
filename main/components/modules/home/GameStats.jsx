@@ -28,7 +28,7 @@ export default function GameStats() {
                 <span className={`icon ${icon} icon-large`}></span>
                 <div>
                   <p className="is-text-white is-size-2">{title}</p>
-                  <p className="is-text-white is-size-3 is-light">
+                  <p className="is-text-white is-size-3 is-normal">
                     {description}
                   </p>
                 </div>
