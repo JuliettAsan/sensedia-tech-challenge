@@ -1,0 +1,25 @@
+.gameStats {
+  height: 10rem;
+  margin-top: 10rem;
+  display: flex;
+  background-color: $purple-01;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  &__content {
+    display: flex;
+    gap: 1rem;
+
+    & div {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 1.3rem;
+    }
+  }
+}

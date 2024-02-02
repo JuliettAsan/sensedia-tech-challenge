@@ -17,8 +17,8 @@
     height: 3rem;
   }
   &-large {
-    width: 12rem;
-    height: 12rem;
+    width: 4rem;
+    height: 4rem;
   }
 
   &-logo {
@@ -32,5 +32,14 @@
   }
   &-apps {
     background-image: url("/assets/icons/icon_apps.svg");
+  }
+  &-sport {
+    background-image: url("/assets/icons/icon_sport.svg");
+  }
+  &-level {
+    background-image: url("/assets/icons/icon_level.svg");
+  }
+  &-score {
+    background-image: url("/assets/icons/icon_score.svg");
   }
 }

@@ -17,16 +17,18 @@ export default function Navbar() {
       <div className="navbar-content">
         <div>
           <span className="icon icon-logo icon-normal"></span>
-          <p className="is-text-purple is-size-2 is-semibold">BIENVENIDO</p>
+          <p className="is-text-purple is-size-2 is-bold">BIENVENIDO</p>
           <span className="icon icon-arrow icon-small"></span>
-          <p className="is-text-gray is-size-2 is-regular ">Registro</p>
+          <p className="is-text-gray is-size-2 is-semibold ">Registro</p>
         </div>
         <div className="user">
           <span className="icon icon-help icon-normal"></span>
           <span className="icon icon-apps icon-normal"></span>
           <div className="user-profile">
             <span>UN</span>
-            <p className="is-text-gray is-regular">Nombre de usuario</p>
+            <p className="is-text-gray is-size-2 is-semibold">
+              Nombre de usuario
+            </p>
           </div>
         </div>
       </div>
