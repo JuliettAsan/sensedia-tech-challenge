@@ -1,0 +1,61 @@
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  &-logo {
+    height: 6rem;
+    min-height: 6rem;
+    max-height: 6rem;
+    width: 100vw;
+    background-color: $black-01;
+    padding: 1rem 2rem;
+    display: inline-grid;
+    align-items: center;
+    & img {
+      object-fit: contain;
+      width: 12% !important;
+      position: relative !important;
+      height: unset !important;
+      min-height: 10%;
+    }
+  }
+
+  &-content {
+    height: 5rem;
+    min-height: 5rem;
+    max-height: 5rem;
+    width: 100vw;
+    background-color: $white-01;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    & div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    & .user {
+      justify-content: space-around;
+
+      & div {
+        border-left: 2px solid $gray-05;
+        padding: 0rem 1rem;
+      }
+
+      &-profile {
+        & span {
+          padding: 1rem;
+          background-color: $purple-03;
+          border-radius: 50%;
+          color: $white-01;
+        }
+      }
+    }
+  }
+}

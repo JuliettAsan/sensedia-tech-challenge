@@ -1,0 +1,36 @@
+.icon {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: inline-block;
+
+  &-small {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  &-normal {
+    width: 2rem;
+    height: 2rem;
+  }
+  &-medium {
+    width: 3rem;
+    height: 3rem;
+  }
+  &-large {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  &-logo {
+    background-image: url("/assets/icons/icon_sensedia.svg");
+  }
+  &-arrow {
+    background-image: url("/assets/icons/icon_arrow.svg");
+  }
+  &-help {
+    background-image: url("/assets/icons/icon_help.svg");
+  }
+  &-apps {
+    background-image: url("/assets/icons/icon_apps.svg");
+  }
+}
