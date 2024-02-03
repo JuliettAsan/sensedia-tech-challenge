@@ -11,7 +11,7 @@ export default function user() {
   const { id } = router.query;
   const { data = {}, error, isLoading } = useSWR(`/api/${id}`, fetcher);
 
-  console.log(data, "data", error, "error", isLoading);
+  console.log(data, "data");
   if (isLoading)
     return (
       <MainLayout

@@ -2,24 +2,23 @@ import MainLayout from "@/main/components/layout/mainLayout/MainLayout";
 import Link from "next/link";
 
 function Error({ statusCode }) {
+  console.log(statusCode);
   return (
     <MainLayout
       meta={{
         title: "Error | TECH CHALLENGE SCORE - JULIETT SANCHEZ",
       }}
     >
-      <div className="space-box is-red is-medium"></div>
-
       <div
-        className={`banner-simple-slide  `}
+        className={`banner-simple-slide`}
         style={{
-          paddingBottom: "4rem",
+          marginTop: "12rem",
+          backgroundColor: "#e2e2e2",
+          minHeight: "80vh",
         }}
       >
-        <div className="banner-simple-slide-col-1">
-          <span className="is-color-red is-bold is-size-2">
-            ERROR {statusCode}
-          </span>
+        <div className="banner-simple-slide-col-2">
+          <span className="is-bold is-size-2">ERROR {statusCode}</span>
           <h3>
             {statusCode === 404
               ? "PÁGINA NO ENCONTRADA"
@@ -30,16 +29,10 @@ function Error({ statusCode }) {
               ? "Lo sentimos, no podemos encontrar la página que solicitaste."
               : "Lo sentimos, hubo un error inesperado. Inténtalo de nuevo más tarde."}
           </p>
-          <Link className="btn " href={"/"}>
+          <Link className="button is-purple " href={"/"}>
             Ir a la página de inicio <span className="icon icon-flecha"></span>
           </Link>
         </div>
-        <div
-          className="banner-simple-slide-col-2"
-          style={{
-            backgroundImage: `url(/assets/error.png)`,
-          }}
-        ></div>
       </div>
     </MainLayout>
   );
