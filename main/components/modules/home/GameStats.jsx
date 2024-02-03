@@ -24,7 +24,7 @@ export default function GameStats() {
         {data &&
           data.map(({ icon, title, description }, index) => {
             return (
-              <div className={styles.gameStats__content}>
+              <div className={styles.gameStats__content} key={index}>
                 <span className={`icon ${icon} icon-large`}></span>
                 <div>
                   <p className="is-text-white is-size-2">{title}</p>

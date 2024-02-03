@@ -1,0 +1,25 @@
+const citiesOfWorld = [
+  "Colombia",
+  "Nueva York",
+  "París",
+  "Tokio",
+  "Londres",
+  "Roma",
+  "Sídney",
+  "Estambul",
+  "Moscú",
+  "Ciudad del Cabo",
+  "Río de Janeiro",
+  "Pekín",
+  "México DF",
+  "Cairo",
+  "Toronto",
+  "Dubái",
+  "Berlín",
+  "Bangkok",
+  "Los Ángeles",
+  "Singapur",
+  "Buenos Aires",
+];
+
+module.exports = { citiesOfWorld };

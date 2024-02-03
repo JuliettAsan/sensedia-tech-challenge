@@ -1,0 +1,15 @@
+.button {
+  @extend .is-size-4;
+  @extend .is-text-gray;
+  @extend .is-bold;
+  padding: 0.5rem 1rem;
+  border: 2px solid $gray-01;
+  border-radius: 30px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $purple-02;
+    color: $white-01;
+    border: 2px solid $purple-02;
+  }
+}

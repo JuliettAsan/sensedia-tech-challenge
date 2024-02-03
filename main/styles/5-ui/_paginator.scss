@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 1rem 1rem;
+  padding-bottom: 1rem;
   @extend .is-size-1;
   gap: 1.2rem;
 
@@ -26,24 +26,35 @@
       padding: 0.5rem 1rem;
       border: 2px solid $gray-01;
       border-radius: 30px;
+      cursor: pointer;
     }
-  }
-
-  & .icon {
-    cursor: pointer;
   }
 }
 
 .page-item {
-  @extend .is-size-2;
-  color: $purple-01;
-  font-weight: 700;
+  @extend .is-size-4;
+  @extend .is-regular;
+  color: $gray-06;
   cursor: pointer;
   &:hover {
     color: $purple-02;
   }
   &.is-active {
     color: $purple-02;
-    @extend .is-size-1;
+    @extend .is-size-3;
+    @extend .is-semibold;
+  }
+}
+
+.select-list {
+  border: none;
+  border-bottom: 1px solid $gray-02;
+  cursor: pointer;
+  @extend .is-size-5;
+  @extend .is-text-gray;
+  @extend .is-semibold;
+  &:focus-visible {
+    border: none;
+    outline: $purple-02;
   }
 }

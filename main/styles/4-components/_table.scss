@@ -2,35 +2,57 @@
   border-collapse: collapse;
   width: 100%;
 
-  & thead {
+  thead {
     border-top: 1px solid $gray-05;
     border-bottom: 1px solid $gray-05;
 
-    & th {
+    th {
       @extend .is-size-2;
       @extend .is-semibold;
-      @extend .is-text-gray;
+      @extend .is-text-gray02;
       padding: 0.5rem 0rem;
       text-align: left;
     }
   }
 
-  & tbody {
-    & tr {
+  tbody {
+    tr {
       padding: 0.5rem;
+
+      i {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease; /* Transición de 0.3 segundos */
+        opacity: 0;
+      }
+
+      &:hover {
+        i {
+          opacity: 0.7;
+          cursor: pointer;
+        }
+      }
     }
 
-    & td {
+    td {
       @extend .is-text-gray;
       @extend .is-regular;
       @extend .is-size-2;
-      padding: 1.5rem 0rem;
+      padding: 1rem 1rem 1rem 0rem;
       text-align: left;
       border-bottom: 1px solid $gray-05;
-
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre-wrap;
+      word-wrap: break-word;
       &.td-especial {
         text-align: center;
       }
+    }
+
+    td:nth-child(5) {
+      max-width: 50px;
     }
   }
 }
