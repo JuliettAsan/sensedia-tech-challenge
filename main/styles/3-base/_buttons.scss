@@ -1,15 +1,22 @@
 .button {
   @extend .is-size-4;
-  @extend .is-text-gray;
-  @extend .is-bold;
-  padding: 0.5rem 1rem;
-  border: 2px solid $gray-01;
-  border-radius: 30px;
+  @extend .is-text-purple02;
+  @extend .is-semibold;
+  padding: 1rem 2rem;
+  border-radius: 32px;
   cursor: pointer;
+  text-transform: uppercase;
 
   &:hover {
+    background-color: $gray-03;
+    color: $black-02;
+  }
+
+  &.is-purple {
     background-color: $purple-02;
     color: $white-01;
-    border: 2px solid $purple-02;
+    &:hover {
+      background-color: $gray-02;
+    }
   }
 }

@@ -1,0 +1,91 @@
+.formGeneric {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0rem;
+  &Column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+
+    @include mediaMin(md) {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    & input {
+      @extend .is-size-4;
+      margin: 1rem 0rem;
+      padding: 0.5rem 0.5rem;
+      border-bottom: 1px solid $gray-01;
+    }
+
+    &-days {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, auto);
+      padding: 0.5rem;
+      gap: 0.5rem;
+
+      & input {
+        margin-right: 0.5rem;
+        appearance: none;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 2px solid $gray-01;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+        &:checked {
+          background-color: $purple-02;
+          border: 2px solid $purple-02;
+          content: "\2713";
+        }
+      }
+
+      & label {
+        @extend .is-size-2;
+        @extend .is-regular;
+        @extend .is-text-black02;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &Items {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: max-content;
+
+      @include mediaMin(md) {
+        width: 50%;
+      }
+
+      &Error {
+        padding-top: 0.3rem;
+        font-weight: 500;
+      }
+
+      &Checks {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        &Text {
+          line-height: 22px;
+          max-width: 24rem;
+        }
+      }
+    }
+  }
+
+  &Buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+}

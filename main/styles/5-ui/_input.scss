@@ -1,4 +1,5 @@
-.searchContainer {
+.content-input {
+  border: none;
   border-bottom: 1px solid $gray-04;
   background-color: $gray-03;
   position: relative;
@@ -9,18 +10,19 @@
     width: 100%;
   }
 
-  &-Input {
-    @extend .is-size-2;
-    @extend .is-regular;
-    background-color: $gray-03;
-    flex: 1;
-    outline: none;
-    border: 0;
-  }
-
   &-Icon {
     position: absolute;
     right: 1rem;
     top: 0.2rem;
   }
+}
+
+.input {
+  @extend .is-size-2;
+  @extend .is-regular;
+  color: $gray-04;
+  background-color: $gray-05;
+  flex: 1;
+  outline: none;
+  border: 0;
 }

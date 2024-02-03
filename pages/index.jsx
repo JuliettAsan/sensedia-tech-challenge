@@ -1,5 +1,6 @@
 import MainLayout from "@/main/components/layout/mainLayout/MainLayout";
 import GameStats from "@/main/components/modules/home/GameStats";
+import RegisterForm from "@/main/components/modules/home/RegisterForm";
 import UsersInformation from "@/main/components/modules/home/UsersInformation";
 import Loading from "@/main/components/ui/Loading/Loading";
 import Modal from "@/main/components/ui/modal/Modal";
@@ -73,6 +74,8 @@ export default function Home() {
           setModal(true);
         }}
       />
+
+      <RegisterForm />
       {/* MODAL */}
       <Modal isActive={modal} handleClose={() => setModal(false)}>
         <div>
@@ -80,7 +83,7 @@ export default function Home() {
             <span className="icon icon-arrows"></span>
           </p>
           <p>¿Está seguro de que desea eliminar a este usuario? </p>
-          <button className="button" onClick={handleConfirmDelete}>
+          <button className="button is-purple" onClick={handleConfirmDelete}>
             Confirmar
           </button>
         </div>

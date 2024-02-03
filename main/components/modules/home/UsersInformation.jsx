@@ -36,18 +36,11 @@ export default function UsersInformation({
       <h3 className="is-text-black02 fs-5 is-bold">Usuarios</h3>
 
       {/* SEARCH INPUT */}
-      <div className="searchContainer">
-        <form>
-          <input
-            className="searchContainer-Input"
-            type="text"
-            value={""}
-            placeholder="Buscar"
-          />
-          <span className="searchContainer-Icon">
-            <i className="icon icon-search icon-normal" />
-          </span>
-        </form>
+      <div className="content-input">
+        <input className="input" type="text" value={""} placeholder="Buscar" />
+        <span className="content-input-Icon">
+          <i className="icon icon-search icon-normal" />
+        </span>
       </div>
 
       {isLoading && <Loading />}
