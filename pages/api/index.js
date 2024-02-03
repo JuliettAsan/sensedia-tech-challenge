@@ -68,9 +68,12 @@ async function fetchPostsUser(user) {
 }
 
 export default async function userHandler(req, res) {
-  const { method } = req;
+  const { method, body } = req;
   const { page = 1 } = req.query;
   const limit = 5;
+  const data = {
+    ...body,
+  };
   switch (method) {
     case "GET":
       try {
@@ -117,6 +120,25 @@ export default async function userHandler(req, res) {
         res
           .status(error.status || 500)
           .json({ message: error.message || JSON.stringify(error) });
+      }
+      break;
+
+    case "POST":
+      try {
+        const response = await fetch(`${url}/users/create`, {
+          body: JSON.stringify(body),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+        });
+
+        return res.status(201).json({
+          message: "Success Created",
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: error.message || error.toString() });
       }
       break;
 

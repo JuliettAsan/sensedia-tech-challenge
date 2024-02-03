@@ -3,6 +3,7 @@
   @extend .is-text-purple02;
   @extend .is-semibold;
   padding: 1rem 2rem;
+  position: relative;
   border-radius: 32px;
   cursor: pointer;
   text-transform: uppercase;
@@ -17,6 +18,39 @@
     color: $white-01;
     &:hover {
       background-color: $gray-02;
+    }
+  }
+
+  &.is-loading {
+    color: transparent !important;
+    pointer-events: none;
+    position: relative;
+    height: 3.5rem;
+    cursor: not-allowed !important;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: $white-01;
+      width: 1.5rem;
+      height: 1.5rem;
+      animation: spin 1s linear infinite;
+      cursor: not-allowed !important;
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
     }
   }
 }
