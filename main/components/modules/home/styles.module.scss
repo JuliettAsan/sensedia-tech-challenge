@@ -26,6 +26,7 @@
 
 .usersInformation {
   display: flex;
+  overflow-y: hidden;
   gap: 3rem;
   flex-wrap: wrap;
 

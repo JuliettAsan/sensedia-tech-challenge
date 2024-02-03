@@ -1,5 +1,6 @@
 .paginator {
   width: 100%;
+  overflow-y: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,10 +8,6 @@
   padding-bottom: 1rem;
   @extend .is-size-1;
   gap: 1.2rem;
-
-  @include mediaMin(md) {
-    margin-bottom: -6rem;
-  }
 
   &-content {
     gap: 1rem;

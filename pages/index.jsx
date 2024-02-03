@@ -62,6 +62,7 @@ export default function Home() {
   return (
     <MainLayout>
       <GameStats />
+
       <UsersInformation
         data={data}
         setFilterURI={setFilterURI}
@@ -72,6 +73,7 @@ export default function Home() {
           setModal(true);
         }}
       />
+      {/* MODAL */}
       <Modal isActive={modal} handleClose={() => setModal(false)}>
         <div>
           <p>
