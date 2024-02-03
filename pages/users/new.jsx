@@ -1,53 +1,16 @@
 import MainLayout from "@/main/components/layout/mainLayout/MainLayout";
 import GameStats from "@/main/components/modules/home/GameStats";
 import RegisterForm from "@/main/components/modules/home/RegisterForm";
-import UsersInformation from "@/main/components/modules/home/UsersInformation";
 import Loading from "@/main/components/ui/Loading/Loading";
-import Modal from "@/main/components/ui/modal/Modal";
 import { fetcher } from "@/main/lib/fetcher";
-import { useEffect } from "react";
 import { useState } from "react";
 import useSWR, { mutate } from "swr";
 import { v4 as uuid } from "uuid";
-import Error from "./_error";
 
 export default function Home() {
   const [resetForm, setResetForm] = useState(false);
   const [filterURI, setFilterURI] = useState("");
-  const [modal, setModal] = useState(false);
-  const [userToDelete, setUserToDelete] = useState(null);
   const { data = {}, error, isLoading } = useSWR(`/api?${filterURI}`, fetcher);
-
-  const handleConfirmDelete = async () => {
-    if (userToDelete) {
-      await handleDeleteUser(userToDelete);
-      setUserToDelete(null);
-    }
-  };
-
-  const handleDeleteUser = async (user) => {
-    try {
-      const res = await fetch(`/api/${user.id}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "PUT",
-        body: JSON.stringify({
-          ...user,
-          name: `${user.name}|blocked`,
-        }),
-      });
-
-      if (res.ok) {
-        mutate(`/api?${filterURI}`);
-        setModal(false);
-      } else {
-        console.error(`Failed to block user ${user.id}`);
-      }
-    } catch (error) {
-      console.error("Error blocking user", error);
-    }
-  };
 
   const handleCreateUser = async (user) => {
     try {
@@ -93,33 +56,10 @@ export default function Home() {
     <MainLayout>
       <GameStats />
 
-      <UsersInformation
-        data={data}
-        setFilterURI={setFilterURI}
-        isLoading={isLoading}
-        pagesNumber={data?.pagesNumber || 1}
-        handleDeleteUser={(user) => {
-          setUserToDelete(user);
-          setModal(true);
-        }}
-      />
-
       <RegisterForm
         handleCreateUser={handleCreateUser}
         setResetForm={setResetForm}
       />
-      {/* MODAL */}
-      <Modal isActive={modal} handleClose={() => setModal(false)}>
-        <div>
-          <p>
-            <span className="icon icon-arrows"></span>
-          </p>
-          <p>¿Está seguro de que desea eliminar a este usuario? </p>
-          <button className="button is-purple" onClick={handleConfirmDelete}>
-            Confirmar
-          </button>
-        </div>
-      </Modal>
     </MainLayout>
   );
 }

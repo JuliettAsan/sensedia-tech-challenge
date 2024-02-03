@@ -2,7 +2,6 @@ import MainLayout from "@/main/components/layout/mainLayout/MainLayout";
 import Link from "next/link";
 
 function Error({ statusCode }) {
-  console.log(statusCode);
   return (
     <MainLayout
       meta={{
