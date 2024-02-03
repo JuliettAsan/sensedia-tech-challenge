@@ -40,6 +40,10 @@
       gap: 1rem;
     }
 
+    & a {
+      display: contents;
+    }
+
     & .user {
       justify-content: space-around;
 

@@ -1,25 +1,35 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Navbar() {
+export default function Navbar({ pathSegments }) {
   return (
     <div className="navbar">
       {/* Section Logo  */}
       <div className="navbar-logo">
-        <Image
-          src={"/Logo_ScoreManager.png"}
-          alt="Logo Sensedia Score Manager"
-          aria-label="Logo Sensedia Score Manager"
-          fill={true}
-          priority={true}
-        />
+        <Link href="/">
+          <Image
+            src={"/Logo_ScoreManager.png"}
+            alt="Logo Sensedia Score Manager"
+            aria-label="Logo Sensedia Score Manager"
+            fill={true}
+            priority={true}
+          />
+        </Link>
       </div>
       {/* Section content*/}
       <div className="navbar-content">
         <div>
-          <span className="icon icon-logo icon-normal"></span>
-          <p className="is-text-purple is-size-2 is-bold">BIENVENIDO</p>
-          <span className="icon icon-arrow icon-small"></span>
-          <p className="is-text-gray is-size-2 is-semibold ">Registro</p>
+          <Link href={`/`}>
+            <span className="icon icon-logo icon-normal"></span>
+            <p className="is-text-purple is-size-2 is-bold">BIENVENIDO</p>
+          </Link>
+
+          {pathSegments.map((item, index) => (
+            <Link href={`/${item}`} key={index}>
+              <span className="icon icon-arrow icon-small"></span>
+              <p className="is-text-gray is-size-2 is-semibold ">{item}</p>
+            </Link>
+          ))}
         </div>
         <div className="user">
           <span className="icon icon-help icon-normal"></span>

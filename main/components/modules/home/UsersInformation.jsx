@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import Loading from "../../ui/Loading/Loading";
+import Link from "next/link";
 
 export default function UsersInformation({
   data = [],
@@ -74,7 +75,9 @@ export default function UsersInformation({
                 index
               ) => (
                 <tr key={index}>
-                  <td className="is-text-black is-semibold">{id}</td>
+                  <td className="is-text-black is-semibold">
+                    <Link href={`/user/${id}`}>{id}</Link>
+                  </td>
                   <td>{name}</td>
                   <td>{email}</td>
                   <td>{randomCity}</td>

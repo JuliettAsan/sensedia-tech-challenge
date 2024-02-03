@@ -49,6 +49,12 @@
       &.td-especial {
         text-align: center;
       }
+
+      a {
+        &:hover {
+          text-decoration-line: underline;
+        }
+      }
     }
 
     td:nth-child(5) {
