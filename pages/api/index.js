@@ -1,6 +1,6 @@
-import { daysOfWeek, citiesOfWorld } from "config";
+import { daysOfWeek, citiesOfWorld } from "../../config/index";
 
-function generateRandomDays() {
+export function generateRandomDays() {
   const numberOfRandomDays = Math.floor(Math.random() * daysOfWeek.length) + 1;
   const randomDays = new Set();
 
@@ -12,7 +12,7 @@ function generateRandomDays() {
   return Array.from(randomDays).join(", ");
 }
 
-function generateRandomCity() {
+export function generateRandomCity() {
   const randomIndex = Math.floor(Math.random() * citiesOfWorld.length);
   const randomCity = citiesOfWorld[randomIndex];
 
@@ -21,7 +21,7 @@ function generateRandomCity() {
 
 const url = process.env.API_URL || "http://localhost:8080/api/v1";
 
-async function fetchAlbumsUser(user) {
+export async function fetchAlbumsUser(user) {
   try {
     const res = await fetch(`${url}/users/${user.id}/albums`, {
       headers: {
@@ -44,7 +44,7 @@ async function fetchAlbumsUser(user) {
   }
 }
 
-async function fetchPostsUser(user) {
+export async function fetchPostsUser(user) {
   try {
     const res = await fetch(`${url}/users/${user.id}/posts`, {
       headers: {
@@ -67,6 +67,23 @@ async function fetchPostsUser(user) {
   }
 }
 
+export async function fetchUsers() {
+  try {
+    const res = await fetch(`${url}/users`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+    });
+
+    const users = await res.json();
+    return { status: res.status, users };
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message || error.toString() });
+  }
+}
+
 export default async function userHandler(req, res) {
   const { method, body } = req;
   const { page = 1 } = req.query;
@@ -77,15 +94,8 @@ export default async function userHandler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const res2 = await fetch(`${url}/users`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "GET",
-        });
-        const responseData = await res2.json();
-
-        const usersArray = responseData.users;
+        const responseData = await fetchUsers();
+        const usersArray = responseData.users.users;
 
         if (!Array.isArray(usersArray)) {
           throw new Error("'users' property is not an array");
@@ -110,7 +120,7 @@ export default async function userHandler(req, res) {
         const end = start + limit;
         const paginatedData = filteredUsers.slice(start, end);
 
-        return res.status(res2.status).json({
+        return res.status(200).json({
           paginatedData,
           count,
           pagesNumber: Math.ceil(count / limit),
