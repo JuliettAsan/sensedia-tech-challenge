@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./styles.module.scss";
 import { useFormik } from "formik";
+import InfoHub from "../../ui/InfoHub/InfoHub";
 
 export default function RegisterForm({ handleCreateUser, setResetForm }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -50,6 +51,7 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
   return (
     <section className={`container `}>
       <h3 className="is-text-black02 fs-5 is-bold">Registro</h3>
+      <InfoHub />
       <div className={styles.registerForm}>
         <h4 className="is-text-gray02 is-size-3 is-semibold">REGISTRO</h4>
         <form

@@ -1,0 +1,17 @@
+.infoHub {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0rem;
+
+  &-content {
+    margin: 1rem 0rem;
+    display: flex;
+    gap: 1rem;
+    & p {
+      color: $gray-06;
+      @extend .is-semibold;
+      @extend .is-size-2;
+    }
+  }
+}

@@ -20,6 +20,10 @@
     width: 4rem;
     height: 4rem;
   }
+  &-big {
+    width: 10rem;
+    height: 5rem;
+  }
 
   &-logo {
     background-image: url("/assets/icons/icon_sensedia.svg");
@@ -47,5 +51,14 @@
   }
   &-trash {
     background-image: url("/assets/icons/icon_trash.svg");
+  }
+  &-float {
+    background-image: url("/assets/icons/icon_float.svg");
+  }
+  &-heart {
+    background-image: url("/assets/icons/icon_heart.svg");
+  }
+  &-face {
+    background-image: url("/assets/icons/icon_face.svg");
   }
 }
