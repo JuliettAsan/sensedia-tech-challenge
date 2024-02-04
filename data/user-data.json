@@ -1,0 +1,12 @@
+{
+  "id": "c030a4a6-e170-4214-8b46-44fffc5a4e22",
+  "name": "John Doe",
+  "email": "john.doe@gmail.com",
+  "navigation": [
+    "Lista de amigos",
+    "Artículos guardados",
+    "Notificaciones",
+    "Preferencias",
+    "Cerrar sesión"
+  ]
+}

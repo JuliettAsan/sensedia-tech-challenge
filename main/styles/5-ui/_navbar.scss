@@ -1,5 +1,8 @@
 .navbar {
-  overflow: hidden;
+  height: 8rem;
+  min-height: 8rem;
+  max-height: 8rem;
+  width: 100lvw;
   position: fixed;
   top: 0;
   left: 50%;
@@ -26,40 +29,128 @@
 
   &-content {
     height: 5rem;
-    min-height: 5rem;
-    max-height: 5rem;
     width: 100vw;
     background-color: $white-01;
     padding: 2rem;
     display: flex;
     justify-content: space-between;
 
-    & div {
+    & a {
+      display: contents;
+    }
+  }
+
+  &-info {
+    justify-content: space-around;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &-item {
+    @extend .is-size-3;
+    margin: 0 1rem;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    padding: 1rem 0;
+
+    &:hover {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      height: 3px;
+      background-color: $purple-01;
+      width: 0;
+      display: block;
+      transition: all 0.5s ease 0s;
+    }
+    &.is-active:after,
+    &:hover:after {
+      width: 40px;
+      transition: all 0.5s ease 0s;
+    }
+
+    &-btn {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &-simple:after {
+      display: none;
+    }
+
+    &.is-bold {
+      @extend .is-size-2;
+      font-weight: 700;
+    }
+  }
+
+  &-dropdown {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    border-left: 2px solid $gray-05;
+
+    &-breadcrumb {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
 
-    & a {
-      display: contents;
+    &-user {
+      @extend .navbar-item;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      cursor: pointer;
+      padding: 1rem;
+      position: relative;
+
+      &::after {
+        display: none;
+      }
+
+      &-image {
+        @extend .is-size-1;
+        @extend .is-regular;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        border-radius: 50%;
+        padding: auto;
+        background-color: #8834b9;
+        color: #ffffff;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+      }
     }
 
-    & .user {
-      justify-content: space-around;
+    &-content {
+      display: none;
+      position: absolute;
+      background-color: $black-01;
+      min-width: 225px;
+      z-index: 1;
+      right: -1rem;
 
-      & div {
-        border-left: 2px solid $gray-05;
-        padding: 0rem 1rem;
+      & .navbar-item {
+        color: $white-01;
+        position: relative;
+        padding: 1rem 1.5rem;
+        display: block;
       }
+    }
 
-      &-profile {
-        & span {
-          padding: 1rem;
-          background-color: $purple-03;
-          border-radius: 50%;
-          color: $white-01;
-        }
-      }
+    &:hover .navbar-dropdown-content {
+      display: block;
     }
   }
 }

@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Navbar({ pathSegments }) {
+export default function Navbar({ pathSegments, user }) {
+  const { name, navigation } = user;
+
   return (
     <div className="navbar">
       {/* Section Logo  */}
@@ -18,7 +20,7 @@ export default function Navbar({ pathSegments }) {
       </div>
       {/* Section content*/}
       <div className="navbar-content">
-        <div>
+        <div className="navbar-dropdown-breadcrumb">
           <Link href={`/`}>
             <span className="icon icon-logo icon-normal"></span>
             <p className="is-text-purple is-size-2 is-bold">BIENVENIDO</p>
@@ -31,14 +33,26 @@ export default function Navbar({ pathSegments }) {
             </Link>
           ))}
         </div>
-        <div className="user">
+        <div className="navbar-info">
           <span className="icon icon-help icon-normal"></span>
           <span className="icon icon-apps icon-normal"></span>
-          <div className="user-profile">
-            <span>UN</span>
-            <p className="is-text-gray is-size-2 is-semibold">
-              Nombre de usuario
-            </p>
+
+          <div className="navbar-dropdown">
+            <div className={`navbar-dropdown-user `}>
+              <div className={`navbar-dropdown-user-image `}>
+                <span>UD</span>
+              </div>
+              <span className="is-text-gray is-size-2 is-semibold">
+                {user.name}
+              </span>
+            </div>
+            <div className="navbar-dropdown-content">
+              {navigation.map((item, index) => (
+                <Link className="navbar-item" href={`/${item}`} key={index}>
+                  {item}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
