@@ -86,11 +86,10 @@ export async function fetchUsers() {
 
 export default async function userHandler(req, res) {
   const { method, body } = req;
-  const { page = 1 } = req.query;
+  const { page = 1, keywords } = req.query;
+  console.log(keywords);
   const limit = 5;
-  const data = {
-    ...body,
-  };
+
   switch (method) {
     case "GET":
       try {
@@ -101,10 +100,20 @@ export default async function userHandler(req, res) {
           throw new Error("'users' property is not an array");
         }
 
-        /* Filter user |blocked */
-        const filteredUsers = usersArray.filter(
-          (user) => !user.name.includes("|blocked")
-        );
+        let filteredUsers;
+
+        if (keywords) {
+          const users = usersArray.filter((user) =>
+            user.name.includes(keywords)
+          );
+          filteredUsers = users.filter(
+            (user) => !user.name.includes("|blocked")
+          );
+        } else {
+          filteredUsers = usersArray.filter(
+            (user) => !user.name.includes("|blocked")
+          );
+        }
 
         /*Add random days, count posts and city */
         for (const user of filteredUsers) {

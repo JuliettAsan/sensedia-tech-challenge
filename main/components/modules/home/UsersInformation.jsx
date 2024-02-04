@@ -11,6 +11,8 @@ export default function UsersInformation({
   handleDeleteUser,
 }) {
   const { paginatedData, count } = data;
+  const [keywords, setKeyword] = useState("");
+
   const [page, setPage] = useState(1);
 
   const updatePage = (value) => {
@@ -22,15 +24,22 @@ export default function UsersInformation({
     if (page) {
       uri += `page=${page}&`;
     }
+    if (keywords) {
+      uri += `keywords=${keywords}&`;
+    }
     setFilterURI(uri);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [page, keywords]);
 
   useEffect(() => {
     setPage(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [keywords]);
+
+  const filteredData = paginatedData?.filter(({ name }) =>
+    name.toLowerCase().includes(keywords.toLowerCase())
+  );
 
   return (
     <section className={`container ${styles.usersInformation}`}>
@@ -38,7 +47,13 @@ export default function UsersInformation({
 
       {/* SEARCH INPUT */}
       <div className="content-input">
-        <input className="input" type="text" value={""} placeholder="Buscar" />
+        <input
+          className="input"
+          type="text"
+          placeholder="Buscar"
+          value={keywords}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
         <span className="content-input-Icon">
           <i className="icon icon-search icon-normal" />
         </span>
