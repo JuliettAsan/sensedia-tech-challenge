@@ -2,7 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar({ pathSegments, user }) {
-  const { name, navigation } = user;
+  const { name } = user;
+
+  const initials = name
+    .split(" ")
+    .map((i) => i.charAt(0).toUpperCase())
+    .join("");
+
+  const navigation = [
+    "Lista de amigos",
+    "Artículos guardados",
+    "Notificaciones",
+    "Preferencias",
+    "Cerrar sesión",
+  ];
 
   return (
     <div className="navbar">
@@ -40,7 +53,7 @@ export default function Navbar({ pathSegments, user }) {
           <div className="navbar-dropdown">
             <div className={`navbar-dropdown-user `}>
               <div className={`navbar-dropdown-user-image `}>
-                <span>UD</span>
+                <span>{initials}</span>
               </div>
               <span className="is-text-gray is-size-2 is-semibold">
                 {user.name}
