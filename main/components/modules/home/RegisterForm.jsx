@@ -18,7 +18,23 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
   const validate = (values) => {
     const errors = {};
     if (!values.username) {
-      errors.username = "Este campo nombre es requerido";
+      errors.username = "El nombre de usuario es requerido";
+    }
+    if (!values.email) {
+      errors.email = "El campo email es requerido";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "El correo electrónico es incorrecto";
+    }
+    if (!values.fullName) {
+      errors.fullName = "El nombre completo es requerido";
+    }
+    if (!values.city) {
+      errors.city = "La ciudad es requerida";
+    }
+    if (!values.days) {
+      errors.days = "Los días de la semana son requeridos";
     }
     console.log(errors);
     return errors;
@@ -48,6 +64,10 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
     },
   });
 
+  const handleCancelForm = () => {
+    formik.resetForm();
+  };
+
   return (
     <section className={`container `}>
       <h3 className="is-text-black02 fs-5 is-bold">Registro</h3>
@@ -63,7 +83,9 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
             {/* Column 1 form */}
             <div className="formGenericColumnItems">
               <input
-                className="input"
+                className={`input ${
+                  formik.errors.username ? "input-error" : ""
+                }`}
                 id="username"
                 name="username"
                 placeholder="Nombre de usuario *"
@@ -72,9 +94,15 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
                 value={formik.values.username}
                 type="text"
               />
-
+              {formik.errors.username ? (
+                <span className="formGenericColumnItemsError">
+                  {formik.errors.username}
+                </span>
+              ) : null}
               <input
-                className="input"
+                className={`input ${
+                  formik.errors.fullName ? "input-error" : ""
+                }`}
                 id="fullName"
                 name="fullName"
                 placeholder="Nombre completo *"
@@ -83,7 +111,11 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
                 value={formik.values.fullName}
                 type="text"
               />
-
+              {formik.errors.fullName ? (
+                <span className="formGenericColumnItemsError">
+                  {formik.errors.fullName}
+                </span>
+              ) : null}
               <input
                 id="email"
                 name="email"
@@ -92,8 +124,13 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
                 type="email"
-                className="input"
+                className={`input ${formik.errors.email ? "input-error" : ""}`}
               />
+              {formik.errors.email ? (
+                <span className="formGenericColumnItemsError">
+                  {formik.errors.email}
+                </span>
+              ) : null}
             </div>
 
             {/* Column 2 form */}
@@ -106,12 +143,22 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
                 onBlur={formik.handleBlur}
                 value={formik.values.city}
                 type="string"
-                className={`input `}
+                className={`input ${formik.errors.city ? "input-error" : ""}`}
               />
+              {formik.errors.city ? (
+                <span className="formGenericColumnItemsError">
+                  {formik.errors.city}
+                </span>
+              ) : null}
 
               <label className="is-text-gray02 is-size-2 is-semibold">
                 DÍAS DE LA SEMANA
               </label>
+              {formik.errors.days ? (
+                <span className="formGenericColumnItemsError">
+                  {formik.errors.days}
+                </span>
+              ) : null}
               <div className="formGenericColumn-days">
                 {daysOfWeek.map((day) => (
                   <label key={day.value}>
@@ -145,7 +192,13 @@ export default function RegisterForm({ handleCreateUser, setResetForm }) {
             >
               Registro
             </button>
-            <button className="button">Cancelar</button>
+            <button
+              type="button"
+              className="button"
+              onClick={() => handleCancelForm()}
+            >
+              Cancelar
+            </button>
           </div>
         </form>
       </div>

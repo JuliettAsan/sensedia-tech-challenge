@@ -38,6 +38,8 @@
         border-radius: 4px;
         outline: none;
         cursor: pointer;
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+
         &:checked {
           background-color: $purple-02;
           border: 2px solid $purple-02;
@@ -66,8 +68,8 @@
       }
 
       &Error {
-        padding-top: 0.3rem;
-        font-weight: 500;
+        color: rgba(199, 35, 35, 0.84);
+        @extend .is-size-4;
       }
 
       &Checks {

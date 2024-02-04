@@ -25,4 +25,8 @@
   flex: 1;
   outline: none;
   border: 0;
+  &-error {
+    border: rgba(181, 30, 30, 0.307) 2px solid;
+    color: rgba(181, 30, 30, 0.307);
+  }
 }

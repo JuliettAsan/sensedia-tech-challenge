@@ -87,7 +87,6 @@ export async function fetchUsers() {
 export default async function userHandler(req, res) {
   const { method, body } = req;
   const { page = 1, keywords } = req.query;
-  console.log(keywords);
   const limit = 5;
 
   switch (method) {
