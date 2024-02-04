@@ -55,7 +55,6 @@ export default function Home() {
   return (
     <MainLayout>
       <GameStats />
-
       <RegisterForm
         handleCreateUser={handleCreateUser}
         setResetForm={setResetForm}
