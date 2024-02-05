@@ -37,10 +37,6 @@ export default function UsersInformation({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keywords]);
 
-  const filteredData = paginatedData?.filter(({ name }) =>
-    name.toLowerCase().includes(keywords.toLowerCase())
-  );
-
   return (
     <section className={`container ${styles.usersInformation}`}>
       <h3 className="is-text-black02 fs-5 is-bold">Usuarios</h3>

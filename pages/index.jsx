@@ -5,7 +5,6 @@ import UsersInformation from "@/main/components/modules/home/UsersInformation";
 import Loading from "@/main/components/ui/Loading/Loading";
 import Modal from "@/main/components/ui/modal/Modal";
 import { fetcher } from "@/main/lib/fetcher";
-import { useEffect } from "react";
 import { useState } from "react";
 import useSWR, { mutate } from "swr";
 import { v4 as uuid } from "uuid";
@@ -80,7 +79,7 @@ export default function Home() {
     return (
       <MainLayout
         meta={{
-          title: "TECH CHALLENGE SCORE - JULIETT SANCHEZ",
+          title: "HOME - TECH CHALLENGE SCORE - JULIETT SANCHEZ",
         }}
       >
         <Loading />
@@ -90,7 +89,11 @@ export default function Home() {
   if (error || data.error) return <Error statusCode={data.status || 500} />;
 
   return (
-    <MainLayout>
+    <MainLayout
+      meta={{
+        title: "HOME - TECH CHALLENGE SCORE - JULIETT SANCHEZ",
+      }}
+    >
       <GameStats />
 
       <UsersInformation

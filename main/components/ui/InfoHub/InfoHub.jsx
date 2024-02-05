@@ -24,7 +24,7 @@ export default function InfoHub() {
     <section className="infoHub">
       {info &&
         info?.map(({ title, icon, description }, index) => (
-          <div>
+          <div key={index}>
             <h5 className="is-size-2 is-text-purple is-bold">{title}</h5>
             <div className="infoHub-content">
               <i className={`icon ${icon} icon-big`}></i>

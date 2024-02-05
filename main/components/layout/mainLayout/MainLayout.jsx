@@ -2,15 +2,16 @@ import Head from "next/head";
 import Navbar from "../../ui/Navbar/Navbar";
 import { useRouter } from "next/router";
 import user from "../../../../data/user-data.json";
+import Footer from "../../ui/Footer/Footer";
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, meta = {} }) => {
   const router = useRouter();
   const pathSegments = router.asPath.split("/").filter(Boolean);
 
   return (
     <>
       <Head>
-        <title>TECH CHALLENGE SCORE - JULIETT SANCHEZ</title>
+        <title>{meta?.title || "TECH CHALLENGE"}</title>
         <meta
           name="description"
           content="Tech challege score manager by Juliett Sanchez Rodriguez"
@@ -20,6 +21,7 @@ const MainLayout = ({ children }) => {
       </Head>
       <Navbar pathSegments={pathSegments} user={user} />
       <main>{children}</main>
+      <Footer />
     </>
   );
 };

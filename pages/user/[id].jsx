@@ -25,7 +25,11 @@ export default function user() {
   if (error || data.error) return <Error statusCode={data.status || 500} />;
 
   return (
-    <MainLayout>
+    <MainLayout
+      meta={{
+        title: "PROFILE - TECH CHALLENGE SCORE - JULIETT SANCHEZ",
+      }}
+    >
       <User data={data} />
     </MainLayout>
   );

@@ -5,7 +5,7 @@ function Error({ statusCode }) {
   return (
     <MainLayout
       meta={{
-        title: "Error | TECH CHALLENGE SCORE - JULIETT SANCHEZ",
+        title: "ERROR | TECH CHALLENGE SCORE - JULIETT SANCHEZ",
       }}
     >
       <div

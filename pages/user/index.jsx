@@ -59,7 +59,11 @@ export default function Home() {
   if (error || data.error) return <Error statusCode={data.status || 500} />;
 
   return (
-    <MainLayout>
+    <MainLayout
+      meta={{
+        title: "USERS - TECH CHALLENGE SCORE - JULIETT SANCHEZ",
+      }}
+    >
       <GameStats />
 
       <UsersInformation
